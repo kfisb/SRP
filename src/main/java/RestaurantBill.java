@@ -28,8 +28,6 @@ public class RestaurantBill {
         return total.add(total.multiply(tipRate));
     }
 
-    ;
-
     BigDecimal computeTotalWithTaxAndTip() {
         BigDecimal total = new BigDecimal(0);
         for (Item item : listOfItems) {
@@ -54,5 +52,4 @@ public class RestaurantBill {
         System.out.println(output);
     }
 
-    ;
 }
