@@ -2,6 +2,7 @@
 gradle/
 .gradle/
 gradlew*
+build
 
 # IntelliJ
 *.ipr
