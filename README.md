@@ -35,4 +35,4 @@ Working in a TDD fashion, and keeping the SRP in mind, work through the list and
 
 ## Testing
 
-Since we are working with legacy code with no tests, the first test should simply assert that the existing output does not change during our refactoring (this [article](http://stackoverflow.com/questions/1119385/junit-test-for-system-out-println) demonstrates how to integration test if a part of the application is writing to `stdout`). Then, as units are refactored out, unit tests should be written.
+Since we are working with legacy code with no tests, the first test should simply assert that the existing output does not change during our refactoring (this [article](http://stackoverflow.com/questions/1119385/junit-test-for-system-out-println) demonstrates how to integration test if a part of the application is writing to `stdout`). Then, as units are refactored out, use TDD and write unit tests to drive the implementation of the units.
