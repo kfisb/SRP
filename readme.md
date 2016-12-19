@@ -1,4 +1,4 @@
-### Problem Set
+# SOLID: Single Responsibility Principle (SRP)
 
 You have been provided the legacy code for `Item` and `RestaurantBill` in an untested codebase that violates Single Responsibility Pattern (SRP).
 
