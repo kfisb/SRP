@@ -1,9 +1,9 @@
-package com.galvanize.curriculum.xp.srp;
+package com.galvanize.curriculum.xp.srp.restaurant;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class App {
+class App {
 
     public static void main(String[] args) {
         // example of usage:

@@ -1,15 +1,15 @@
-package com.galvanize.curriculum.xp.srp;
+package com.galvanize.curriculum.xp.srp.restaurant;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class RestaurantBill {
+class RestaurantBill {
     private List<Item> listOfItems;
 
     private static final BigDecimal taxRate = new BigDecimal("0.10");
     private static final BigDecimal tipRate = new BigDecimal("0.18");
 
-    public RestaurantBill(List<Item> listOfItems) {
+    RestaurantBill(List<Item> listOfItems) {
         this.listOfItems = listOfItems;
     }
 
