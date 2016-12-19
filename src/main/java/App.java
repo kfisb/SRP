@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class App {
+
     public static void main(String[] args) {
         // example of usage:
         Item burger = new Item("Burger", 4, 2);
