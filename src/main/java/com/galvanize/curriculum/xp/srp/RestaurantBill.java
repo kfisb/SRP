@@ -1,3 +1,5 @@
+package com.galvanize.curriculum.xp.srp;
+
 import java.math.BigDecimal;
 import java.util.List;
 
