@@ -8,10 +8,9 @@
 ## Problem
 
 - Choose one of the provided SRP violations below at a time.
-- Answer following question:
-  - How does the code violate the SRP?
-  - What would you have to do in order to implement the new requirement stated above the problem?
+- How does the code violate the SRP?
 - Draw a class diagram of the current implementation.
+- How could you solve the problem?
 - Draw a class diagram of the solution, using established design patterns.
 - Solve the chosen problem using TDD and Bypass Surgery Refactoring.
 
