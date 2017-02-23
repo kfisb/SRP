@@ -1,42 +1,50 @@
 package com.galvanize.curriculum.xp.srp.restaurant;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 class RestaurantBill {
     private List<Item> listOfItems;
+    private BigDecimal taxRate;
+    private BigDecimal tipRate;
 
-    private static final BigDecimal taxRate = new BigDecimal("0.10");
-    private static final BigDecimal tipRate = new BigDecimal("0.18");
-
-    RestaurantBill(List<Item> listOfItems) {
+    public RestaurantBill(List<Item> listOfItems, BigDecimal taxRate, BigDecimal tipRate) {
         this.listOfItems = listOfItems;
+        this.taxRate = taxRate;
+        this.tipRate = tipRate;
+    }
+
+    public BigDecimal computeSubTotal() {
+        BigDecimal total = new BigDecimal(0);
+        for (Item item : listOfItems) {
+            total = total.add(item.getPrice().multiply(new BigDecimal(item.getQuantity()))).setScale(2, RoundingMode.HALF_DOWN);
+        }
+        return total;
     }
 
     BigDecimal computeTotalWithTax() {
-        BigDecimal total = new BigDecimal(0);
-        for (Item item : listOfItems) {
-            total = total.add(item.getPrice().multiply(new BigDecimal(item.getQuantity())));
-        }
-        return total.add(total.multiply(taxRate));
+        BigDecimal total = computeSubTotal();
+
+        Calculator calculator = new Calculator(taxRate, tipRate);
+
+        return calculator.computeTotalWithTax(total);
     }
 
     BigDecimal computeTotalWithTip() {
-        BigDecimal total = new BigDecimal(0);
+        BigDecimal total = computeSubTotal();
 
-        for (Item item : listOfItems) {
-            total = total.add(item.getPrice().multiply(new BigDecimal(item.getQuantity())));
-        }
-        return total.add(total.multiply(tipRate));
+        Calculator calculator = new Calculator(taxRate, tipRate);
+        return calculator.computeTotalWithTip(total);
     }
 
     BigDecimal computeTotalWithTaxAndTip() {
-        BigDecimal total = new BigDecimal(0);
-        for (Item item : listOfItems) {
-            total = total.add(item.getPrice().multiply(new BigDecimal(item.getQuantity())));
-        }
-        return total.add(total.multiply(taxRate).add(total.multiply(tipRate)));
+        BigDecimal total = computeSubTotal();
+        Calculator calculator = new Calculator(taxRate, tipRate);
+        return calculator.computeTotalWithTipAndTax(total);
     }
+
+
 
     void printItemizedReceipt() {
         String output = "";
